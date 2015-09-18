@@ -1,12 +1,13 @@
 require 'selenium-webdriver'
 
 class SeleniumWrapper
-  def initialize(browser = :firefox)
+  def initialize(browser = :firefox, mobile = false)
     profile = Selenium::WebDriver::Firefox::Profile.new
     #profile["network.proxy.type"]          = 1
     #profile["network.proxy.http"]          = "127.0.0.1"
     #profile["network.proxy.http_port"]     = 9999
     #profile["network.proxy.no_proxies_on"] = "localhost, 127.0.0.1, *awful-valentine.com"
+	profile["general.useragent.override"] = "iPhone" if mobile
     @browser = Selenium::WebDriver.for(browser, :profile => profile)
   end  
   
