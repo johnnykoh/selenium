@@ -35,7 +35,7 @@ class SeleniumWrapper
     end
   end    
   
-  def type_text(text, element, strategy=:css)
+  def type_text(text, element, strategy=:id)
     begin 
      bring_current_window_to_front
      clear(element, strategy)
@@ -48,7 +48,7 @@ class SeleniumWrapper
     end
   end
   
-  def click(element, strategy=:css)
+  def click(element, strategy=:link)
     begin
      bring_current_window_to_front
      find_element(element, strategy).click
@@ -60,11 +60,11 @@ class SeleniumWrapper
     end
   end
   
-  def get_inner_text(element, strategy=:css)
+  def get_inner_text(element, strategy=:id)
      find_element(element, strategy).text
   end 
   
-  def clear(element, strategy=:css)
+  def clear(element, strategy=:id)
     begin
       find_element(element, strategy).clear
     rescue Exception => e
@@ -74,7 +74,7 @@ class SeleniumWrapper
     end
   end
   
-  def find_element(element, strategy=:css) 
+  def find_element(element, strategy=:id) 
     @browser.find_element(strategy, element)
   end
   
