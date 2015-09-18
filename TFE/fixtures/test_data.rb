@@ -9,7 +9,6 @@ class TestData
 	end
 	
 	def self.get_environment
-		puts ENV['environment']
 		ENV['environment'] || "staging"
 	end
 	

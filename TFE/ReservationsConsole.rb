@@ -3,6 +3,7 @@ require 'selenium-webdriver'
 require 'test/unit'
 require 'date'
 require File.join(File.dirname(__FILE__), 'test_data')
+require File.join(File.dirname(__FILE__), 'helper')
 
 class TFEHotels_ReservationsConsole < Test::Unit::TestCase
 
