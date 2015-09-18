@@ -9,6 +9,9 @@ class SeleniumWrapper
     #profile["network.proxy.no_proxies_on"] = "localhost, 127.0.0.1, *awful-valentine.com"
 	profile["general.useragent.override"] = "iPhone" if mobile
     @browser = Selenium::WebDriver.for(browser, :profile => profile)
+	if mobile
+		@browser.manage.window.resize_to(480, 320)
+	end
   end  
   
   def quit
