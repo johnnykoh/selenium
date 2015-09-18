@@ -12,7 +12,7 @@ require 'selenium_wrapper'
 require 'test_data'
                   
 
-I18n.enforce_available_locales = false #Supresses some I18n deprication warnings, not nessery
+#I18n.enforce_available_locales = false #Supresses some I18n deprication warnings, not nessery
 
 exit Test::Unit::AutoRunner.run(true, test_dir)                  
 

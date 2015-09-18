@@ -1,25 +1,18 @@
-require 'rubygems'
-require 'selenium-webdriver'
-require 'test/unit'
-require 'date'
-require File.join(File.dirname(__FILE__), 'test_data')
-require File.join(File.dirname(__FILE__), 'helper')
 
-class TFEHotels_ReservationsConsole < Test::Unit::TestCase
+class ReservationsConsoleTests < Test::Unit::TestCase
 
 	def setup
-		@browser = Selenium::WebDriver.for(:firefox)
-		@browser.manage.timeouts.implicit_wait = 10
+		@selenium = SeleniumWrapper.new
 	end
 	
 	def teardown
-		@browser.quit
+		@selenium.quit
 	end
 
 	def test_reservationsconsole
-		@browser.get(TestData.get_base_url)
-		check_console_displaying
-		simple_console_query
+		@selenium.get(TestData.get_base_url)
+		#check_console_displaying
+		#simple_console_query
 	end
 	
 	private
